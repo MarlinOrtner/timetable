@@ -1,0 +1,89 @@
+:root {
+  color-scheme: dark;
+  --bg: #121018;
+  --panel: #1d1a27;
+  --panel-2: #29233a;
+  --text: #f4f4f5;
+  --muted: #b7b6be;
+  --accent: #ff4fa3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: linear-gradient(150deg, var(--bg), #0f2330);
+  color: var(--text);
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1, h2 { margin: 0 0 .4rem; }
+p { margin: .2rem 0; }
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .6rem;
+  margin: 1rem 0;
+}
+
+select, button {
+  width: 100%;
+  border: 0;
+  border-radius: .8rem;
+  padding: .8rem;
+  font-size: 1rem;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+}
+
+.artist-list {
+  display: grid;
+  gap: .7rem;
+}
+
+.artist-card, .detail-card {
+  display: block;
+  text-decoration: none;
+  background: var(--panel);
+  border: 1px solid #3c3650;
+  border-radius: 1rem;
+  padding: .9rem;
+  color: var(--text);
+}
+
+.artist-card:active { background: var(--panel-2); }
+
+.back {
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-block;
+  margin: .3rem 0 .9rem;
+}
+
+.bio {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.empty { color: var(--muted); }
+
+@media (min-width: 700px) {
+  .filters {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .filters button {
+    grid-column: 1 / -1;
+  }
+}
