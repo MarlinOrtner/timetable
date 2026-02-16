@@ -1,0 +1,34 @@
+[
+  {
+    "id": "luna-wave",
+    "name": "Luna Wave",
+    "genre": "Indie Pop",
+    "bio": "Luna Wave blends dreamy synth textures with warm vocal harmonies to create nostalgic indie pop soundscapes.",
+    "date": "2026-05-12",
+    "spotify_embed_url": "https://open.spotify.com/embed/track/4uLU6hMCjMI75M1A2tKUQC"
+  },
+  {
+    "id": "atlas-echo",
+    "name": "Atlas Echo",
+    "genre": "Electronic",
+    "bio": "Atlas Echo is known for kinetic live sets driven by atmospheric house rhythms and melodic bass lines.",
+    "date": "2026-05-10",
+    "spotify_embed_url": "https://open.spotify.com/embed/track/1AhDOtG9vPSOmsWgNW0BEY"
+  },
+  {
+    "id": "violet-lane",
+    "name": "Violet Lane",
+    "genre": "Alternative Rock",
+    "bio": "Violet Lane delivers high-energy alt-rock anthems with introspective lyrics and punchy guitar hooks.",
+    "date": "2026-05-18",
+    "spotify_embed_url": "https://open.spotify.com/embed/track/3n3Ppam7vgaVa1iaRUc9Lp"
+  },
+  {
+    "id": "sundial-soul",
+    "name": "Sundial Soul",
+    "genre": "R&B",
+    "bio": "Sundial Soul combines smooth R&B vocals and jazz-inspired arrangements in a modern, groove-forward style.",
+    "date": "2026-05-14",
+    "spotify_embed_url": "https://open.spotify.com/embed/track/7ouMYWpwJ422jRcDASZB7P"
+  }
+]

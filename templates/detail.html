@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ artist.name }} | Artist Timetable{% endblock %}
+
+{% block content %}
+<article class="detail-card">
+  <p><a href="{{ url_for('artist_list') }}">← Back to artists</a></p>
+  <h2>{{ artist.name }}</h2>
+  <p class="meta">{{ artist.genre }} • {{ artist.performance_date.strftime('%b %d, %Y') }}</p>
+  <p>{{ artist.bio }}</p>
+
+  <h3>Listen on Spotify</h3>
+  <div class="embed-wrap">
+    <iframe
+      title="Spotify player for {{ artist.name }}"
+      src="{{ artist.spotify_embed_url }}"
+      width="100%"
+      height="152"
+      frameborder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
+  </div>
+</article>
+{% endblock %}
