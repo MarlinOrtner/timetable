@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ artist.name }} | Sziget 2026</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <a class="back" href="/artists">← Back to lineup</a>
+
+    <article class="detail-card">
+      <h1>{{ artist.name }}</h1>
+      <p><strong>Genre:</strong> {{ artist.genre or "Unknown" }}</p>
+      <p><strong>Performance date:</strong> {{ artist.performance_date or "TBC" }}</p>
+      <p class="bio">{{ artist.biography or "Biography not available yet." }}</p>
+
+      {% if artist.spotify_embed_url %}
+      <section>
+        <h2>Top track</h2>
+        <p>{{ artist.spotify_track_name }} — {{ artist.spotify_track_artist }}</p>
+        <iframe
+          src="{{ artist.spotify_embed_url }}"
+          width="100%"
+          height="152"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </section>
+      {% else %}
+        <p class="empty">Spotify preview unavailable for this artist.</p>
+      {% endif %}
+    </article>
+  </main>
+</body>
+</html>

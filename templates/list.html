@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Artists | Artist Timetable{% endblock %}
+
+{% block content %}
+<section class="filter-bar" aria-label="Filter artists">
+  <form method="get" class="filters">
+    <label>
+      Genre
+      <select name="genre">
+        <option value="">All genres</option>
+        {% for genre in genres %}
+          <option value="{{ genre }}" {% if selected_genre == genre %}selected{% endif %}>{{ genre }}</option>
+        {% endfor %}
+      </select>
+    </label>
+
+    <label>
+      Date
+      <input type="date" name="date" value="{{ selected_date }}" />
+    </label>
+
+    <label>
+      Sort by
+      <select name="sort">
+        <option value="date_asc" {% if selected_sort == 'date_asc' %}selected{% endif %}>Date (soonest)</option>
+        <option value="date_desc" {% if selected_sort == 'date_desc' %}selected{% endif %}>Date (latest)</option>
+        <option value="name_asc" {% if selected_sort == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+        <option value="name_desc" {% if selected_sort == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+      </select>
+    </label>
+
+    <button type="submit">Apply</button>
+  </form>
+</section>
+
+<section class="artist-grid" aria-label="Artist listing">
+  {% for artist in artists %}
+    <article class="artist-card">
+      <h2>{{ artist.name }}</h2>
+      <p class="meta">{{ artist.genre }} • {{ artist.performance_date.strftime('%b %d, %Y') }}</p>
+      <p>{{ artist.bio[:120] }}{% if artist.bio|length > 120 %}…{% endif %}</p>
+      <a class="button-link" href="{{ url_for('artist_detail', artist_id=artist.id) }}">View details</a>
+    </article>
+  {% else %}
+    <p>No artists match your filters.</p>
+  {% endfor %}
+</section>
+{% endblock %}
