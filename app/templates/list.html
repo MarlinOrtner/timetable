@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sziget 2026 Lineup</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Sziget 2026 Lineup</h1>
+      <p>Festival companion optimized for mobile.</p>
+    </header>
+
+    <form class="filters" method="get" action="/artists">
+      <select name="genre">
+        <option value="">All genres</option>
+        {% for g in all_genres %}
+          <option value="{{ g }}" {% if filters.genre == g %}selected{% endif %}>{{ g }}</option>
+        {% endfor %}
+      </select>
+
+      <select name="date">
+        <option value="">All dates</option>
+        {% for d in all_dates %}
+          <option value="{{ d }}" {% if filters.date == d %}selected{% endif %}>{{ d }}</option>
+        {% endfor %}
+      </select>
+
+      <select name="sort">
+        <option value="name" {% if filters.sort == "name" %}selected{% endif %}>Sort by name</option>
+        <option value="date" {% if filters.sort == "date" %}selected{% endif %}>Sort by date</option>
+      </select>
+
+      <button type="submit">Apply</button>
+    </form>
+
+    <section class="artist-list">
+      {% if artists %}
+        {% for artist in artists %}
+          <a class="artist-card" href="/artists/{{ artist.slug }}">
+            <h2>{{ artist.name }}</h2>
+            <p>{{ artist.genre or "Genre pending" }}</p>
+            <p>{{ artist.performance_date or "Date pending" }}</p>
+          </a>
+        {% endfor %}
+      {% else %}
+        <p class="empty">No artists match these filters. Trigger a scrape if cache is empty.</p>
+      {% endif %}
+    </section>
+  </main>
+</body>
+</html>
